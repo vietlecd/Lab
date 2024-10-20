@@ -1,14 +1,17 @@
 const button = document.getElementById('flowerButton');
 
 // Xoay tự động trước khi bấm
-setTimeout(() => {
-    button.classList.add('rotated');
-}, 1000); // Xoay sau 1 giây
+if(button){
+    setTimeout(() => {
+        button.classList.add('rotated');
+    }, 1000); // Xoay sau 1 giây
 
-button.addEventListener('click', () => {
-    // Xử lý sự kiện sau khi nút đã xoay
-    alert('Xin chào! Nút đã xoay.');
-});
+    button.addEventListener('click', () => {
+        // Xử lý sự kiện sau khi nút đã xoay
+        alert('Xin chào! Nút đã xoay.');
+    });
+}
+
 
 var TxtType = function (el, toRotate, period) {
     this.toRotate = toRotate;

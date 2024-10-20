@@ -9,24 +9,27 @@
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
     <title>Flowers</title>
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body>
+    
+    <audio id="background-audio" muted loop autoplay>
+        <source src="./NoiGioacuteRoi-ChauThamZhouShen-6330139.mp3">
+    </audio>
     <div class="greetings">
         <!-- silahkan menambah kata sesuai keinginan dengan <span>text...</span -->
-        
-            <span id="letter">Y</span>
-            <span id="letter">O</span>
-            <span id="letter">U</span>
-            <span id="letter">'</span>
-            <span id="letter">R</span>
-            <span>E</span>
-        
+
+        <span id="letter">Y</span>
+        <span id="letter">O</span>
+        <span id="letter">U</span>
+        <span id="letter">'</span>
+        <span id="letter">R</span>
+        <span>E</span>
+
         <span style="margin-right: 20px;"></span>
         <span id="letter">M</span>
         <span>Y</span>
-        
+
         <span style="margin-right:4pt;"></span>
         <br class="mobile-break">
 
@@ -34,7 +37,6 @@
             <a href="" id="pp_letter" class="typewrite" data-period="2000"
                 data-type='[ "FLOWER", "SUNSHINE", "LOVE","QUEEN" ,"SWEET","INSPIRATION","JEWEL" ]'>
                 <script>
-
                     var TxtType = function (el, toRotate, period) {
                         this.toRotate = toRotate;
                         this.el = el;
@@ -103,12 +105,12 @@
         <span id="letter">R</span> -->
 
     </div>
+    
     <div id="typedtext" class="csstext">
+        <div id="clickMe">click vao man hinh</div>
         <script>
-
-            // set up text to print, each item in array is new line
             var aText = new Array(
-                "20.10.2023 Ngày Phụ Nữ Việt Nam",
+                "20.10.2024 Ngày Phụ Nữ Việt Nam",
                 "Chúc em luôn xinh đẹp, mạnh khỏe và hạnh phúc.",
                 "Chúc em luôn được yêu thương và che chở",
                 "Tìm được những niềm vui và hạnh phúc trong cuộc sống",
@@ -144,7 +146,28 @@
                 }
             }
 
-            typewriter();
+            
+            window.addEventListener('load', () => {
+                const audio = document.getElementById('background-audio');
+                const click = document.getElementById("clickMe")
+                // Bật âm thanh khi người dùng click
+                const enableAudio = () => {
+                    audio.muted = false; // Bật âm thanh
+                    audio.play(); // Phát âm thanh
+                    document.removeEventListener('click', enableAudio); // Gỡ bỏ sự kiện sau lần đầu
+                    document.removeEventListener('click', typewriter);
+                };
+                
+                // Gán sự kiện click để bật âm thanh
+                document.addEventListener('click', () => {
+                    click.classList.add("hidden")
+                    enableAudio()
+                    typewriter();
+                    
+                });
+            });
+            // set up text to print, each item in array is new line
+            
         </script>
 
 
@@ -161,7 +184,6 @@
     <div class="button">
         <a href="flower.html">
             <div id="flower" class="rotate"></div>
-
             <script src="hoa.js"></script>
 
         </a>
