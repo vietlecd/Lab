@@ -170,7 +170,7 @@ Particle.prototype.draw = function () {
 // create particle group/explosion
 function createParticles(x, y) {
     // increase the particle count for a bigger explosion, beware of the canvas performance hit with the increased particles though
-    var particleCount = 50; // Increase particle count for larger fireworks
+    var particleCount = 100; // Increase particle count for larger fireworks
     while (particleCount--) {
         particles.push(new Particle(x, y));
     }
