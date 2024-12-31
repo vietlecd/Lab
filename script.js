@@ -242,11 +242,12 @@ canvas.addEventListener('mouseup', function (e) {
 
 window.onload = function() {
     loop();
-    playMusic();
+    document.addEventListener('click', playMusic); // Add event listener for user interaction
 };
 
 function playMusic() {
     const audio = new Audio('./HappyNewYearBeatInstrumental-ABB_4axky.mp3');
     audio.loop = true;
     audio.play();
+    document.removeEventListener('click', playMusic); // Remove event listener after first interaction
 }
