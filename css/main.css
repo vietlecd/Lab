@@ -1318,4 +1318,51 @@ body {
 .container * {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.fireworks {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.firework__burst {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
+    border-radius: 50%;
+    animation: burst 1s ease-out infinite;
+}
+
+@keyframes burst {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* Additional styles for different bursts */
+.firework__burst--1 { top: 20%; left: 30%; }
+.firework__burst--2 { top: 40%; left: 50%; }
+.firework__burst--3 { top: 60%; left: 70%; }
+.firework__burst--4 { top: 80%; left: 20%; }
+.firework__burst--5 { top: 50%; left: 80%; }
+.firework__burst--6 { top: 30%; left: 60%; }
+.firework__burst--7 { top: 70%; left: 40%; }
+.firework__burst--8 { top: 90%; left: 10%; }
+/*# sourceMappingURL=main.css.map */
