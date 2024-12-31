@@ -128,7 +128,7 @@ function Particle(x, y) {
     }
     // set a random angle in all possible directions, in radians
     this.angle = random(0, Math.PI * 2);
-    this.speed = random(1, 10);
+    this.speed = random(2, 20); // Increase speed for larger fireworks
     // friction will slow the particle down
     this.friction = 0.95;
     // gravity will be applied and pull the particle down
@@ -170,7 +170,7 @@ Particle.prototype.draw = function () {
 // create particle group/explosion
 function createParticles(x, y) {
     // increase the particle count for a bigger explosion, beware of the canvas performance hit with the increased particles though
-    var particleCount = 30;
+    var particleCount = 50; // Increase particle count for larger fireworks
     while (particleCount--) {
         particles.push(new Particle(x, y));
     }
@@ -239,5 +239,14 @@ canvas.addEventListener('mouseup', function (e) {
     e.preventDefault();
     mousedown = false;
 });
-// once the window loads, we are ready for some fireworks!
-window.onload = loop;
+
+window.onload = function() {
+    loop();
+    playMusic();
+};
+
+function playMusic() {
+    const audio = new Audio('./HappyNewYearBeatInstrumental-ABB_4axky.mp3');
+    audio.loop = true;
+    audio.play();
+}
